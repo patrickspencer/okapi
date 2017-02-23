@@ -13,11 +13,12 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 import sys
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, "../okapi"))
-TEMPLATE_DIR = os.path.abspath(os.path.join(ROOT_DIR, "templates"))
-APPS_DIR = os.path.abspath(os.path.join(ROOT_DIR, "apps"))
+# Build paths inside the project like this: os.path.join(CONFIG_DIR, ...)
+CONFIG_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.abspath(os.path.join(CONFIG_DIR, ".."))
+MAIN_APP_DIR = os.path.abspath(os.path.join(CONFIG_DIR, "../okapi"))
+TEMPLATE_DIR = os.path.abspath(os.path.join(MAIN_APP_DIR, "templates"))
+APPS_DIR = os.path.abspath(os.path.join(MAIN_APP_DIR, "apps"))
 
 sys.path.insert(1, APPS_DIR)
 
@@ -111,5 +112,22 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
+
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "server_static_files"))
+
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+STATIC_URL = '/static/'
+
+# See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
+STATICFILES_DIRS = (
+    os.path.abspath(os.path.join(MAIN_APP_DIR, "static"))
+)
+
+# See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 STATIC_URL = '/static/'
