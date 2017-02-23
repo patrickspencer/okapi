@@ -2,7 +2,7 @@
 
 NAME="hello_app"                                  # Name of the application
 DJANGODIR=/home/ubuntu/okapi             # Django project directory
-SOCKFILE=/home/ubuntu/okapi_gunicorn.sock  # we will communicte using this unix socket
+SOCKFILE=/home/ubuntu/okapi_logs/okapi_gunicorn.sock  # we will communicte using this unix socket
 USER=hello                                        # the user to run as
 GROUP=webapps                                     # the group to run as
 NUM_WORKERS=3                                     # how many worker processes should Gunicorn spawn
@@ -29,3 +29,4 @@ exec /home/ubuntu/.local/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --bind=unix:$SOCKFILE \
   --log-level=debug \
   --log-file=-
+  --reload
