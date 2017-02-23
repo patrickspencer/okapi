@@ -10,8 +10,11 @@ SECRET_KEY = '95m0ei^4n6q(+*ty-1@=x#^%epu#6g!9y2fog#j6vs&h$rq7-h'
 DEBUG = False
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'okapi_db',
+    'USER': 'okapi',
+    'PASSWORD': 'password',
+    'HOST': 'localhost',
+    'PORT': '',
 }
