@@ -11,10 +11,17 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, "../okapi"))
+TEMPLATE_DIR = os.path.abspath(os.path.join(ROOT_DIR, "templates"))
+APPS_DIR = os.path.abspath(os.path.join(ROOT_DIR, "apps"))
 
+sys.path.insert(1, APPS_DIR)
+
+import ewalk
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -28,6 +35,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'ewalk.apps.EwalkConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,7 +59,9 @@ ROOT_URLCONF = 'okapi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            TEMPLATE_DIR
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

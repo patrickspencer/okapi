@@ -13,9 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+import os
+import sys
 from django.conf.urls import url
 from django.contrib import admin
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# APPS_DIR = os.path.abspath(os.path.join(BASE_DIR, "okapi", "apps"))
+# sys.path.insert(1, APPS_DIR)
+from okapi.apps.ewalk import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.index, name='index'),
 ]
