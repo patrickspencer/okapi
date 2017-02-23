@@ -6,8 +6,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '95m0ei^4n6q(+*ty-1@=x#^%epu#6g!9y2fog#j6vs&h$rq7-h'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# I meant to leave this as True for production. I want to know what is 
+# breaking on the server
+DEBUG = True
 
 DATABASES = {
 'default': {
