@@ -9,7 +9,7 @@ SECRET_KEY = '95m0ei^4n6q(+*ty-1@=x#^%epu#6g!9y2fog#j6vs&h$rq7-h'
 
 # I meant to leave this as True for production. I want to know what is
 # breaking on the server
-DEBUG = True
+DEBUG = False
 
 DATABASES = {
 'default': {
