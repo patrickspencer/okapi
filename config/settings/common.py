@@ -120,7 +120,7 @@ STATIC_URL = '/static/'
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
-    os.path.abspath(os.path.join(MAIN_APP_DIR, "static"))
+    os.path.abspath(os.path.join(MAIN_APP_DIR, "assets")),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
