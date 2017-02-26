@@ -15,8 +15,11 @@ Including another URLconf
 """
 import os
 import sys
-from django.conf.urls import url
+from django.conf import settings
 from django.contrib import admin
+from django.conf.urls import url
+from django.conf.urls.static import static
+
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # APPS_DIR = os.path.abspath(os.path.join(BASE_DIR, "okapi", "apps"))
 # sys.path.insert(1, APPS_DIR)
