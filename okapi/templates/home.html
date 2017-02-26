@@ -14,14 +14,7 @@
     <![endif]-->
 
     {% block css %}
-    <!-- Latest compiled and minified Bootstrap 4 Alpha 4 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
-
-    <!-- Your stuff: Third-party CSS libraries go here -->
-
-    <!-- This file stores project-specific CSS -->
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
-
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
     {% endblock %}
 
   </head>
@@ -30,9 +23,6 @@
 
 This is a test
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     {% block javascript %}
       <!-- Required by Bootstrap v4 Alpha 4 -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
@@ -44,7 +34,6 @@ This is a test
       <!-- place project specific Javascript in this file -->
 
       <script src="{% static 'js/project.js' %}"></script>
-
 
     {% endblock javascript %}
   </body>
