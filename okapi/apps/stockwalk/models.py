@@ -3,10 +3,12 @@ from django.db import models
 
 class Symbol(models.Model):
 
-    name = models.CharField(max_length=1000)
+    symbol = models.CharField(max_length=10)
+    name = models.CharField(max_length=500)
+    sector = models.CharField(max_length=1000)
 
     class Meta:
-        db_table = 'symbols'
+        db_table = 'stockwalk_companies'
 
 
 class Quote(models.Model):
@@ -20,4 +22,4 @@ class Quote(models.Model):
     volume = models.IntegerField()
 
     class Meta:
-        db_table = 'quotes'
+        db_table = 'stockwalk_quotes'
