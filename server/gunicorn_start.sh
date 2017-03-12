@@ -1,14 +1,14 @@
 #!/bin/bash
 
-NAME="okapi_app"                                  # Name of the application
-DJANGODIR=/home/ubuntu/okapi             # Django project directory
-SOCKFILE=/home/ubuntu/okapi_gunicorn.sock  # we will communicte using this unix socket
+NAME="okapi_app"                                    # Name of the application
+DJANGODIR=/home/ubuntu/okapi                        # Django project directory
+SOCKFILE=/home/ubuntu/okapi_gunicorn.sock           # we will communicate using this unix socket
 LOGFILE=/home/ubuntu/okapi_logs/okapi_gunicorn.log  # we will communicte using this unix socket
-USER=hello                                        # the user to run as
-GROUP=webapps                                     # the group to run as
-NUM_WORKERS=3                                     # how many worker processes should Gunicorn spawn
-DJANGO_SETTINGS_MODULE=config.settings.production             # which settings file should Django use
-DJANGO_WSGI_MODULE=config.wsgi                     # WSGI module name
+USER=ubuntu                                         # the user to run as
+GROUP=webapps                                       # the group to run as
+NUM_WORKERS=3                                       # how many worker processes should Gunicorn spawn
+DJANGO_SETTINGS_MODULE=config.settings.production   # which settings file should Django use
+DJANGO_WSGI_MODULE=config.wsgi                      # WSGI module name
 
 echo "Starting $NAME as `whoami`"
 
