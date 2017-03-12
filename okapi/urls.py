@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # APPS_DIR = os.path.abspath(os.path.join(BASE_DIR, "okapi", "apps"))
 # sys.path.insert(1, APPS_DIR)
-from okapi.apps.ewalk import views
+from okapi.apps.stockwalk import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

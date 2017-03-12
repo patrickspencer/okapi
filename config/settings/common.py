@@ -22,7 +22,7 @@ APPS_DIR = os.path.abspath(os.path.join(MAIN_APP_DIR, "apps"))
 
 sys.path.insert(1, APPS_DIR)
 
-import ewalk
+import stockwalk
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -35,7 +35,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'ewalk.apps.EwalkConfig',
+    'stockwalk.apps.StockwalkConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
