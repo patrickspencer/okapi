@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+      <div class="row">
+        <div class="col-lg-12">
+	    <h3>{{ company.name }} - ({{ company.symbol }})</h3>
+	<center>
+	  <img src="/static/stockwalk_graphs/{{ symbol }}_close.png" alt="" />
+	</center>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+	<h4>{{ symbol }}</h4>
+	<p>This page is a time series analysis of the stock prices of the {{ company.name }} prices for about a year and a half as predicted using <a href="https://facebookincubator.github.io/prophet/">Facebook's Prophet library</a></p>
+        </div>
+      </div>
+      {% endblock %}

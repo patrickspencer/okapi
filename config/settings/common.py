@@ -20,10 +20,6 @@ MAIN_APP_DIR = os.path.abspath(os.path.join(CONFIG_DIR, "../okapi"))
 TEMPLATE_DIR = os.path.abspath(os.path.join(MAIN_APP_DIR, "templates"))
 APPS_DIR = os.path.abspath(os.path.join(MAIN_APP_DIR, "apps"))
 
-sys.path.insert(1, APPS_DIR)
-
-import ewalk
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -35,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'ewalk.apps.EwalkConfig',
+    'okapi.apps.stockwalk.apps.StockwalkConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,6 +117,7 @@ STATIC_URL = '/static/'
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
     os.path.abspath(os.path.join(MAIN_APP_DIR, "assets")),
+    os.path.join(os.path.expanduser("~"), "stockwalk_graphs"),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders

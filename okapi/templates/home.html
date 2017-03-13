@@ -1,46 +1,9 @@
-{% load staticfiles i18n %}<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}okapi{% endblock title %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+{% extends 'base.html' %}
+{% block content %}
+      <div class="row marketing clearfix">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-
-    {% block css %}
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-    {% endblock %}
-
-  </head>
-
-  <body>
-
-<div class="container">
-      <div class="header clearfix">
-        <!-- <nav> -->
-        <!--   <ul class="nav nav&#45;pills pull&#45;right"> -->
-        <!--     <li role="presentation" class="active"><a href="#">Home</a></li> -->
-        <!--     <li role="presentation"><a href="#">About</a></li> -->
-        <!--     <li role="presentation"><a href="#">Contact</a></li> -->
-        <!--   </ul> -->
-        <!-- </nav> -->
-        <h3 class="text-muted">Okapi</h3>
-      </div>
-
-      <div class="jumbotron">
-        <h1>Jumbotron heading</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-      </div>
-
-      <div class="row marketing">
         <div class="col-lg-6">
+<<<<<<< HEAD
           <h4>Subheading</h4>
           <p>
 	  {% for q in quotes %}
@@ -50,32 +13,44 @@
 
           <h4>Subheading</h4>
           <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+=======
+          <h4>About</h4>
+          <p>
+	  Technologies used.
+	  <ul>
+	      <li>Python</li>
+	      <li>R</li>
+	      <li>Postgresql</li>
+	      <li>GNU\Linux servers</li>
+	      <li>Git</li>
+	  </ul>
+	  Services
+	  <ul>
+	      <li>Amazon Web Services</li>
+	      <li>Github</li>
+	  </ul>
+	  Frameworks and libraries
+	  <ul>
+	      <li>Django</li>
+	      <li> <a href="https://facebookincubator.github.io/prophet/">Facebook Prophet</a></li>
+	      <li>Sqlalchemy</li>
+	  </ul>
+	  Source code
+	  <ul>
+	      <li><a href="https://github.com/patrickspencer/okapi">Okapi: web front end for stock analysis program Stockwalk</a></li>
+	      <li><a href="https://github.com/patrickspencer/stockwalk">Stockwalk: program for analysing stock prices for S&P companies using Facebook's Prophet library</a></li>
+	  </ul>
+	  </p>
+>>>>>>> next
 
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
-
         <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <h4>Companies in the S&P 500</h4>
+	  {% for c in companies %}
+	  <a href="/company/{{ c.symbol }}/">{{ c.name }}</a><br>
+	  {% endfor %}
         </div>
       </div>
 
-      <footer class="footer">
-        <p>&copy; 2016 Company, Inc.</p>
-      </footer>
-
-    </div> <!-- /container -->
-
-    {% block javascript %}
-      <script src="{% static 'js/project.js' %}"></script>
-    {% endblock javascript %}
-  </body>
-</html>
+      {% endblock %}
 

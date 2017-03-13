@@ -1,7 +1,7 @@
 Okapi
 =====
 
-This is the web front end for the ewalk program
+This is the web front end for the stockwalk program
 
 Server setup
 ------------
