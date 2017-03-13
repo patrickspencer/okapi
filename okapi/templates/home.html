@@ -30,8 +30,16 @@
 	      <li><a href="https://github.com/patrickspencer/stockwalk">Stockwalk: program for analysing stock prices for S&P companies using Facebook's Prophet library</a></li>
 	  </ul>
 	  </p>
-        </div>
-      </div>
+	</div> <!-- /.col-lg-__ -->
+	<div class="col-lg-6">
+	   <h4>Companies in the S&P 500</h4>
+	   {% for c in companies %}
+	   <a href="/company/{{ c.symbol }}/">{{ c.name }}</a><br>
+	   {% endfor %}
+	  </div>
+	</div>
+
+      </div> <!-- ./row -->
 
       {% endblock %}
 
