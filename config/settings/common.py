@@ -19,6 +19,7 @@ BASE_DIR = os.path.abspath(os.path.join(CONFIG_DIR, ".."))
 MAIN_APP_DIR = os.path.abspath(os.path.join(CONFIG_DIR, "../okapi"))
 TEMPLATE_DIR = os.path.abspath(os.path.join(MAIN_APP_DIR, "templates"))
 APPS_DIR = os.path.abspath(os.path.join(MAIN_APP_DIR, "apps"))
+print(os.path.join(os.path.expanduser("~"), "stockwalk_graphs"))
 
 sys.path.insert(1, APPS_DIR)
 
@@ -121,6 +122,7 @@ STATIC_URL = '/static/'
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
     os.path.abspath(os.path.join(MAIN_APP_DIR, "assets")),
+    os.path.join(os.path.expanduser("~"), "stockwalk_graphs"),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
