@@ -6,8 +6,8 @@ DATABASE_NAME = okapi_db
 DATABASE_USER = okapi
 DATABASE_PASSWORD = password
 DATABASE_HOST = localhost
-DATABASE_PORT =
+DATABASE_PORT = 5432
 
 [general]
 DEBUG = False
-ALLOWED_HOSTS = 127.0.0.1
+ALLOWED_HOSTS = okapi.run
