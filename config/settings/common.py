@@ -19,11 +19,6 @@ BASE_DIR = os.path.abspath(os.path.join(CONFIG_DIR, ".."))
 MAIN_APP_DIR = os.path.abspath(os.path.join(CONFIG_DIR, "../okapi"))
 TEMPLATE_DIR = os.path.abspath(os.path.join(MAIN_APP_DIR, "templates"))
 APPS_DIR = os.path.abspath(os.path.join(MAIN_APP_DIR, "apps"))
-print(os.path.join(os.path.expanduser("~"), "stockwalk_graphs"))
-
-sys.path.insert(1, APPS_DIR)
-
-import stockwalk
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -36,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'stockwalk.apps.StockwalkConfig',
+    'okapi.apps.stockwalk.apps.StockwalkConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
