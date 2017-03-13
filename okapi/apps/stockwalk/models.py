@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Symbol(models.Model):
+class Company(models.Model):
 
     symbol = models.CharField(max_length=10)
     name = models.CharField(max_length=500)
@@ -18,7 +18,7 @@ class Quote(models.Model):
     high = models.FloatField()
     close = models.FloatField()
     adj_close = models.FloatField()
-    symbol = models.ForeignKey(Symbol, on_delete=models.CASCADE)
+    symbol = models.ForeignKey(Company, on_delete=models.CASCADE)
     volume = models.IntegerField()
 
     class Meta:
