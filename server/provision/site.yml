@@ -1,14 +1,17 @@
 ---
-- name: Provision a {{ project_name }} site
+- name: "Provision a {{ project_name }} site"
   hosts: tag_Name_test2
+  gather_facts: False
   remote_user: "{{ server_user }}"
   become: true
   vars_files:
   - vars.yml
 
   pre_tasks:
-  - name: 'install python2'
+  - name: Install python2
     raw: apt-get -y install python-simplejson
 
   roles:
   - web
+
+
