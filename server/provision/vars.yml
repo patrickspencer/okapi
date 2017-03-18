@@ -16,29 +16,32 @@ system_packages:
 
 # db
 db_user: "{{ project_name }}"
-db_name: "{{ project_name }}"
+db_name: "{{ project_name }}_db"
 db_password: password
+ansible_distribution_release:
 
 # virtualenv
 virtualenv_python_version: python3
 
-# Application settings.
-project_path: "/home/ubuntu/{{ project_name }}"
+# Project settings.
+project_parent_dir: /home/ubuntu
+project_path: "{{ project_parent_dir }}/{{ project_name }}"
 virtualenv_path: "/home/ubuntu/.virtualenvs/okapi"
-project_log_dir: "/home/ubuntu/okapi_logs"
+project_log_dir: "{{ project_parent_dir }}/okapi_logs"
 project_log_file: "{{ project_log_dir }}/gunicorn_supervisor.log"
 requirements_file: "{{ project_path }}/requirements/production.txt"
 
 # Gunicorn settings.
 gunicorn_user: "{{ project_name }}"
 gunicorn_group: webapps
+gunicorn_sock_file: "{{ project_parent_dir }}/okapi_gunicorn.sock"
 
 # Nginx settings.
 nginx_access_log_file: "{{ project_log_dir }}/nginx_access.log"
 nginx_error_log_file: "{{ project_log_dir }}/nginx_error.log"
-nginx_static_dir: "{{ virtualenv_path }}/static/"
-nginx_media_dir: "{{ virtualenv_path }}/media/"
-
+nginx_static_dir: "{{ project_path }}/server_static_files"
+nginx_media_dir: "{{ project_path }}/media/"
+nginx_server_name: "{{ inventory_hostname }}"
 
 # Django environment variables.
 django_environment:
