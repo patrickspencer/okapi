@@ -12,6 +12,7 @@
     raw: apt-get -y install python-simplejson
 
   roles:
+  - db
   - web
 
 
