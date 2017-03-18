@@ -2,7 +2,7 @@
   connection: local
   gather_facts: false
   vars:
-      keypair: "desktop-winlinux"
+      keypair: "insight_server_key_pks"
       instance_type: "t2.micro"
       # standard ubuntu 16.04 lts
       image: "ami-f4cc1de2"
