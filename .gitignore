@@ -84,4 +84,7 @@ server_static_files/
 
 .sass-cache/
 
+# Ansible
+*.retry
+
 # End of https://www.gitignore.io/api/python
