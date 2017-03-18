@@ -1,10 +1,52 @@
 ---
+project_name: okapi
+
+ssh_private_key: ~/.ssh/okapi_servers
+git_repo: https://github.com/patrickspencer/okapi.git
 system_packages:
   - git
   - nginx
   - gunicorn
   - postgresql
   - postgresql-server-dev-all
+  - python-pip
   - python3-pip
   - python3-dev
   - python3-psycopg2
+
+# db
+db_user: "{{ project_name }}"
+db_name: "{{ project_name }}"
+db_password: password
+
+# virtualenv
+virtualenv_python_version: python3
+
+# Application settings.
+project_path: "/home/ubuntu/{{ project_name }}"
+virtualenv_path: "/home/ubuntu/.virtualenvs/okapi"
+project_log_dir: "/home/ubuntu/okapi_logs"
+project_log_file: "{{ project_log_dir }}/gunicorn_supervisor.log"
+requirements_file: "{{ project_path }}/requirements/production.txt"
+
+# Gunicorn settings.
+gunicorn_user: "{{ project_name }}"
+gunicorn_group: webapps
+
+# Nginx settings.
+nginx_access_log_file: "{{ project_log_dir }}/nginx_access.log"
+nginx_error_log_file: "{{ project_log_dir }}/nginx_error.log"
+nginx_static_dir: "{{ virtualenv_path }}/static/"
+nginx_media_dir: "{{ virtualenv_path }}/media/"
+
+
+# Django environment variables.
+django_environment:
+  DJANGO_SETTINGS_MODULE: "{{ django_settings_file }}"
+  DJANGO_SECRET_KEY: "{{ django_secret_key }}"
+  MEDIA_ROOT: "{{ nginx_media_dir }}"
+  STATIC_ROOT: "{{ nginx_static_dir }}"
+  DATABASE_NAME: "{{ db_name }}"
+  DATABASE_USER: "{{ db_user }}"
+  DATABASE_PASSWORD: "{{ db_password }}"
+  BROKER_URL: "{{ broker_url }}"
