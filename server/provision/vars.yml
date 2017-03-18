@@ -1,7 +1,7 @@
 ---
 project_name: okapi
-
 ssh_private_key: ~/.ssh/okapi_servers
+server_user: ubuntu
 git_repo: https://github.com/patrickspencer/okapi.git
 system_packages:
   - git
