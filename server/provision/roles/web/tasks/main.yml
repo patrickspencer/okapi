@@ -9,62 +9,17 @@
        dest=/home/ubuntu/okapi
        accept_hostkey=yes
 
-- name: Install virtualenv
-  pip: name=virtualenv
-  tags: packages
+- include: create_users_and_groups.yml
+  tags: users_and_groups
 
-- name: Create the virtualenv
-  command: virtualenv -p {{ virtualenv_python_version }} {{ virtualenv_path }}
-           creates={{ virtualenv_path }}/bin/activate
+- include: setup_virtualenv.yml
+  tags: virtualenv
 
-- name: Install packages required by the Django app inside virtualenv
-  pip: virtualenv={{ virtualenv_path }} requirements={{ requirements_file }}
+- include: setup_django.yml
+  tags: django
 
-- name: Run the Django syncdb command
-  django_manage:
-    command: syncdb
-    app_path: "{{ project_path }}"
-    virtualenv: "{{ virtualenv_path }}"
-    settings: "{{ django_settings_file }}"
-  environment: "{{ django_environment }}"
-  when: run_django_syncdb is defined and run_django_syncdb
-  tags: django.syncdb
+- include: setup_nginx.yml
+  tags: nginx
 
-- name: Run Django database migrations
-  django_manage:
-    command: migrate
-    app_path: "{{ project_path }}"
-    virtualenv: "{{ virtualenv_path }}"
-    settings: "{{ django_settings_file }}"
-  environment: "{{ django_environment }}"
-  when: run_django_db_migrations is defined and run_django_db_migrations
-  tags: django.migrate
-
-- name: Run Django collectstatic
-  django_manage:
-    command: collectstatic
-    app_path: "{{ project_path }}"
-    virtualenv: "{{ virtualenv_path }}"
-    settings: "{{ django_settings_file }}"
-  environment: "{{ django_environment }}"
-  when: run_django_collectstatic is defined and run_django_collectstatic
-  tags: django.collectstatic
-
-- name: Create the Nginx configuration file
-  template: src=nginx.j2
-            dest=/etc/nginx/sites-available/{{ project_name }}
-            backup=yes
-  notify: reload nginx
-
-- name: Ensure that the default site is disabled
-  file: path=/etc/nginx/sites-enabled/default state=absent
-  notify: reload nginx
-
-- name: Ensure that the application site is enabled
-  file: src=/etc/nginx/sites-available/{{ project_name }}
-        dest=/etc/nginx/sites-enabled/{{ project_name }}
-        state=link
-  notify: reload nginx
-
-- name: Ensure Nginx service is started
-  service: name=nginx state=started enabled=yes
+- include: setup_supervisor.yml
+  tags: supervisor
