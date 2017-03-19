@@ -1,6 +1,6 @@
 ---
 - name: "Provision a {{ project_name }} site"
-  hosts: tag_Name_test2
+  hosts: tag_Name_test
   gather_facts: False
   remote_user: "{{ server_user }}"
   become: true
