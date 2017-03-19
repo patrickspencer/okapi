@@ -1,6 +1,5 @@
 ---
 project_name: okapi
-ssh_private_key: ~/.ssh/okapi_servers
 server_user: ubuntu
 git_repo: https://github.com/patrickspencer/okapi.git
 system_packages:
@@ -20,7 +19,6 @@ system_packages:
 db_user: "{{ project_name }}"
 db_name: "{{ project_name }}_db"
 db_password: password
-ansible_distribution_release:
 
 # virtualenv
 virtualenv_python_version: python3
