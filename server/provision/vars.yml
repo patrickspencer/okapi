@@ -26,7 +26,7 @@ virtualenv_python_version: python3
 # Project settings.
 project_parent_dir: /var/www
 project_path: "{{ project_parent_dir }}/{{ project_name }}"
-virtualenv_path: "/home/ubuntu/.virtualenvs/okapi"
+virtualenv_path: "{{ project_parent_dir }}/.virtualenvs/okapi"
 project_log_dir: "{{ project_parent_dir }}/okapi_logs"
 project_log_file: "{{ project_log_dir }}/gunicorn_supervisor.log"
 requirements_file: "{{ project_path }}/requirements/production.txt"
