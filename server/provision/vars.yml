@@ -24,7 +24,7 @@ db_password: password
 virtualenv_python_version: python3
 
 # Project settings.
-project_parent_dir: /home/ubuntu
+project_parent_dir: /var/www
 project_path: "{{ project_parent_dir }}/{{ project_name }}"
 virtualenv_path: "/home/ubuntu/.virtualenvs/okapi"
 project_log_dir: "{{ project_parent_dir }}/okapi_logs"
