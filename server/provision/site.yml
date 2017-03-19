@@ -1,5 +1,5 @@
 ---
-- name: "Provision a {{ project_name }} site"
+- name: "Provision a {{ application_name }} site"
   hosts: tag_Name_test
   gather_facts: False
   remote_user: "{{ server_user }}"
