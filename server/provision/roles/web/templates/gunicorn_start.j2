@@ -14,7 +14,8 @@ echo "Starting $NAME as `whoami`"
 
 # Activate the virtual environment
 cd $DJANGODIR
-source {{ virtualenv_path }}/bin/activate
+. {{ virtualenv_path }}/bin/activate
+source {{ project_path }}/env_vars.sh
 export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
 export PYTHONPATH=$DJANGODIR:$PYTHONPATH
 
@@ -24,7 +25,7 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
-exec /home/ubuntu/.local/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+exec {{ virtualenv_path }}/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --name $NAME \
   --workers $NUM_WORKERS \
   --bind=unix:$SOCKFILE \

@@ -15,6 +15,9 @@
 - include: setup_virtualenv.yml
   tags: virtualenv
 
+- include: set_file_permissions.yml
+  tags: permissions
+
 - include: setup_django.yml
   tags: django
 
