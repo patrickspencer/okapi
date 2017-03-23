@@ -20,6 +20,8 @@ system_packages:
 db_user: "{{ application_name }}"
 db_name: "{{ application_name }}_db"
 db_password: password
+db_host: localhost
+db_port: 5432
 
 # virtualenv
 virtualenv_python_version: python3
@@ -55,3 +57,6 @@ django_environment:
   DATABASE_NAME: "{{ db_name }}"
   DATABASE_USER: "{{ db_user }}"
   DATABASE_PASSWORD: "{{ db_password }}"
+  DATABASE_HOST: "{{ db_host }}"
+  DATABASE_PORT: "{{ db_port }}"
+  ALLOWED_HOSTS: "{{ inventory_hostname }}"
