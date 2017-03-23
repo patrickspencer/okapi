@@ -20,5 +20,5 @@ DATABASES = {
 }
 }
 
-ALLOWED_HOSTS = [host in os.environ['ALLOWED_HOSTS']]
+ALLOWED_HOSTS = [host for host in os.environ['ALLOWED_HOSTS']]
 
