@@ -86,5 +86,6 @@ server_static_files/
 
 # Ansible
 *.retry
+env_vars
 
 # End of https://www.gitignore.io/api/python

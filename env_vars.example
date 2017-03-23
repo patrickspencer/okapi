@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# This file will be auto generated if you use the ansible provision in server/provision.
+# run source env_vars to set these variables for the local version
+
+export STATIC_ROOT="/var/www/okapi_proj/okapi/server_static_files"
+export MEDIA_ROOT="/var/www/okapi_proj/okapi/media/"
+export DATABASE_NAME="okapi_db"
+export DJANGO_SECRET_KEY="+$hd&%cp34=*a5q*)azo*7jo0oirc1pji%630ow360up^e^zcz"
+export DJANGO_SETTINGS_MODULE="config.settings.local"
+export DATABASE_PORT="5432"
+export DATABASE_PASSWORD="password"
+export ALLOWED_HOSTS="52.90.71.64"
+export DATABASE_HOST="localhost"
+export DATABASE_USER="okapi"
