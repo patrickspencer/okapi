@@ -8,6 +8,8 @@
   git: repo="{{ git_repo }}"
        dest="{{ application_path }}"
        accept_hostkey=yes
+       version="{{ git_branch }}"
+       depth=1
 
 - include: create_users_and_groups.yml
   tags: users_and_groups
