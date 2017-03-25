@@ -1,4 +1,4 @@
-/* 
+/*
  * run the following command:
  * sudo -u postgres psql -U postgres -d okapi_db -a -f provision.sql
  */
